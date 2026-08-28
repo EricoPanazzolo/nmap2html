@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nmap Scan Report</title>
+  <link rel="stylesheet" href="__CSS_HREF__">
+</head>
+<body>
+<div class="container">
+  <header class="card report-header">
+    <div class="header-top">
+      <div>
+        <h1>Nmap Scan Report</h1>
+        <div class="subtle">Source: __SOURCE_NAME__</div>
+      </div>
+      <div class="view-toggle" aria-label="Report view">
+        <button type="button" class="active" data-action="switch-view" data-view="detail">Detail view</button>
+        <button type="button" data-action="switch-view" data-view="sheet">Sheet view</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span>Total targets</span><strong>__TOTAL_TARGETS__</strong></div>
+      <div class="stat"><span>Hosts up</span><strong>__HOSTS_UP__</strong></div>
+      <div class="stat"><span>Open ports</span><strong>__TOTAL_OPEN_PORTS__</strong></div>
+      <div class="stat"><span>Reviewed</span><strong id="reviewed-counter">0</strong></div>
+    </div>
+
+    <div class="scan-meta">
+      <div><span>Nmap version</span><strong>__NMAP_VERSION__</strong></div>
+      <div><span>Scan start</span><strong>__START_TIME__</strong></div>
+      <div><span>Scan end</span><strong>__FINISH_TIME__</strong></div>
+      <div><span>Original command</span><code>__NMAP_ARGS__</code></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="detail-view" class="view">
+      __TABS_HTML__
+      __PANELS_HTML__
+      __NO_HOSTS__
+    </section>
+
+    <section id="sheet-view" class="view hidden">
+      <div class="card sheet-card">
+        <div class="sheet-toolbar">
+          <div>
+            <h2>Sheet view</h2>
+            <div class="subtle">One row per open port</div>
+          </div>
+          <input id="sheet-search" class="search-box" type="search" placeholder="Search target, IP, OS, port, service, version..." aria-label="Filter sheet rows">
+        </div>
+        <div class="table-wrap">
+          <table class="sheet-table">
+            <thead><tr><th>Done</th><th>Target</th><th>IP</th><th>Status</th><th>OS</th><th>Port</th><th>Service</th><th>Version / Details</th></tr></thead>
+            <tbody>__SHEET_ROWS__</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script>window.NMAP_REPORT_HOST_KEYS = __HOST_KEYS_JSON__;</script>
+<script src="__JS_SRC__"></script>
+</body>
+</html>
